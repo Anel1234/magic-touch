@@ -273,12 +273,19 @@ if (!imageInfo) return;
        ctx.putImageData(imgd, 0, 0);
 }
 
+function convertImagetoCanvas() {
+    var can = document.getElementById('resultCanvas');
+    var ctx = imageInfo.context;
+    $('#test-picture').attr("src",can.toDataURL());
+}
+
 function keyPressHandler(e) {
 var keyCode = e.keyCode;
     if(keyCode == 46){
         console.log("delete!");
         trace();
         getCanvasImage();
+        convertImagetoCanvas();
     }
 }
 
