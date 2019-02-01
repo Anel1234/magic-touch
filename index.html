@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/magic-wand-js/js/magic-wand-min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+        <div style="overflow: auto">
+                <div class="button" onclick="uploadClick()">Upload image and click on it</div>
+                <div class="button" onclick="trace()">Create polygons by current selection</div>
+                 <div class="button" onclick="getCanvasImage()">Get selected image</div>
+                <input id="file-upload" type="file" accept="image/*" onchange="imgChange(this)" />
+            </div>
+            <div style="overflow: auto">
+                <div style="float: left; margin-right: 10px;">Blur radius: </div>
+                <input id="blurRadius" type="text" onchange="onRadiusChange.apply(this, arguments)" style="float: left; width: 20px; margin-right: 10px;"/>
+                <div id="threshold"></div>
+            </div>
+            <div>(hold left mouse button and move to change the color threshold)</div>
+            <div class='wrapper'>
+                <div class='content'>
+                    <img id="test-picture" class="picture" />
+                    <canvas class="canvas" id="resultCanvas" onmouseup="onMouseUp.apply(this, arguments)" onmousedown="onMouseDown.apply(this, arguments)" onmousemove="onMouseMove.apply(this, arguments)"></canvas>
+                </div>
+            </div>
+            
+</body>
+</html>
